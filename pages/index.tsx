@@ -30,8 +30,8 @@ const Home: NextPage = () => {
         }
     }
 
-    // console.log("array after sort: ", collection_1.concat(collection_2))
-    console.log("array after sort: ", collection_3.concat(collection_4))
+    console.log("array after sort: ", collection_1.concat(collection_2))
+    // console.log("array after sort: ", collection_3.concat(collection_4))
     // console.log("array after sort: ", collection_5.concat(collection_6))
     console.log("array after sort: ", result)
 
@@ -51,12 +51,6 @@ const Home: NextPage = () => {
                     <h1>
                         Press 12 to open the console for seeing the result, And they have 3 unit tests with 6 arrays.
                     </h1>
-                    <p>
-                        Array before sort: {collection_1.concat(collection_2)}
-                    </p>
-                    <p>
-                        Array after sort: {result}
-                    </p>
                 </div>
             </main>
 
