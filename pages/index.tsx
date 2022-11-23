@@ -3,84 +3,76 @@ import Head from 'next/head'
 import Image from 'next/image'
 
 const Home: NextPage = () => {
-  return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
 
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
+    //test01
+    const collection_1: Number[] = [3, 6, 1, 2, 8];
+    const collection_2: Number[] = [1, 2, 1, 3];
 
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
-            pages/index.tsx
-          </code>
-        </p>
+    //test02
+    const collection_3: Number[] = [0, 9, 6, 2, 2, 5, 3, 10, 15];
+    const collection_4: Number[] = [1, 5, 3, 2, 1, 4, 2];
 
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and its API.
-            </p>
-          </a>
+    //test03
+    const collection_5: Number[] = [3, 6, 1, 2, 6, 1, 2, 8];
+    const collection_6: Number[] = [2, 2, 5, 3, 10, 5, 1, 3];
 
-          <a
-            href="https://nextjs.org/learn"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
+    // let result: Number[] = collection_1.concat(collection_2);
+    let result: Number[] = collection_3.concat(collection_4);
+    // let result: Number[] = collection_5.concat(collection_6);
 
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
+    for (let i = 0; i < result.length; i++) {
+        for (let j = i + 1; j < result.length; j++) {
+            if (result[i] > result[j]) {
+                let keyholder = result[i];
+                result[i] = result[j];
+                result[j] = keyholder;
+            }
+        }
+    }
 
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+    // console.log("array after sort: ", collection_1.concat(collection_2))
+    console.log("array after sort: ", collection_3.concat(collection_4))
+    // console.log("array after sort: ", collection_5.concat(collection_6))
+    console.log("array after sort: ", result)
+
+    return (
+        <div className="flex min-h-screen flex-col items-center justify-center py-2 bg-black">
+            <Head>
+                <title>Array sorting without sort function</title>
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
+
+            <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center text-white">
+                <h1 className="text-6xl font-bold">
+                    Array sorting without sort function.
+                </h1>
+
+                <div className="w-10/12 h-40 bg-slate-200 text-gray-900 rounded-md mt-6">
+                    <h1>
+                        Press 12 to open the console for seeing the result, And they have 3 unit tests with 6 arrays.
+                    </h1>
+                    <p>
+                        Array before sort: {collection_1.concat(collection_2)}
+                    </p>
+                    <p>
+                        Array after sort: {result}
+                    </p>
+                </div>
+            </main>
+
+            <footer className="flex h-24 w-full items-center justify-center border-t bg-slate-400">
+                <a
+                    className="flex items-center justify-center gap-2"
+                    href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Powered by{' '}
+                    <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+                </a>
+            </footer>
         </div>
-      </main>
-
-      <footer className="flex h-24 w-full items-center justify-center border-t">
-        <a
-          className="flex items-center justify-center gap-2"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-        </a>
-      </footer>
-    </div>
-  )
+    )
 }
 
 export default Home
